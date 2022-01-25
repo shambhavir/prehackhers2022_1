@@ -1,12 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import SetUp from './src/screens/SetUp';
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator screenOptions={{
+			headerStyle: {
+				backgroundColor: '#228CDB'
+			},
+        	headerTintColor: '#fff'
+    	}} initialRouteName="SetUp">
+      <Stack.Screen name="Manage Your Finances!" component={SetUp} />
+     
+    </Stack.Navigator>
+  </NavigationContainer> 
   );
 }
 
